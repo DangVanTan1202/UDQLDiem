@@ -1,1 +1,96 @@
-<p>quanligiaovien works!</p>
+
+
+
+
+<div *ngIf="!opencreate" class="modal-background">
+  <form class="modal-form" (ngSubmit)="create()">
+    <h3>Thêm mới giáo viên</h3>
+    <input type="text" [(ngModel)]="newgiaovien.maGv" [ngModelOptions]="{ standalone: true }" placeholder="Mã giáo viên">
+    <input type="text" [(ngModel)]="newgiaovien.hoTen" [ngModelOptions]="{ standalone: true }" placeholder="Họ và tên">
+    <input type="date" [(ngModel)]="newgiaovien.ngaySinh" [ngModelOptions]="{ standalone: true }" placeholder="Ngày sinh">
+    <div style="display:  flex; gap: 15px;">
+      <label for="">Giới tính:</label>
+      <select [(ngModel)]="newgiaovien.gioiTinh" name="gioiTinh" style="height: 30px; width: 70px;">
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+      </select></div>
+    <input type="text" [(ngModel)]="newgiaovien.diaChi" [ngModelOptions]="{ standalone: true }" placeholder="Địa chỉ">
+    <input type="text" [(ngModel)]="newgiaovien.sdt" [ngModelOptions]="{ standalone: true }" placeholder="Số điện thoại">
+    <select [(ngModel)]="newgiaovien.maHp" [ngModelOptions]="{ standalone: true }">
+      <option style="height: 60px;" *ngFor="let m of mon" [value]="m.maHp">{{ m.tenHp }}</option>
+    </select>
+    <button class="btn btn-success" type="submit">Cập Nhật</button>
+    <button class="btn btn-secondary" type="button" (click)="open()">Đóng</button>
+  </form>
+</div>
+
+
+<div class="action">
+  <label >Tìm Kiếm :</label>
+  <input [(ngModel)]="search" (change)="searchds($event)" placeholder="Nhập để tìm" type="text" name="search">
+  <button class="btn btn-primary" (click)="open()">Thêm Tài khoản</button>
+
+</div>
+
+
+
+<div class="form">
+    <div class="table-group">
+      <table>
+        <thead>
+          <tr>
+            <th>Số thứ tự</th>
+            <th class="masinhvien">Mã giáo viên</th>
+            <th>Họ và tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
+            <th>Mã học phần</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of Gvdata | paginate: { itemsPerPage: 10, currentPage: page }; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ s.maGv }}</td>
+            <td>{{ s.hoTen }}</td>
+            <td >{{s.ngaySinh}}</td>
+            <td >{{s.gioiTinh}}</td>
+            <td>{{s.diaChi}}</td>
+            <td>{{s.sdt}}</td>
+            <td>{{s.maHp}}</td>
+            <td>
+                  <div class="btn">
+                    <button class="btn btn-success" (click)="toggleEditMode(i)">Chỉnh sửa</button>
+                    <button class="btn btn-danger" (click)="confirmDelete(s.maGv)">Xóa</button>
+                  </div>
+                  <div *ngIf="editMode[i]" class="modal-background">
+                    <form class="modal-form" (ngSubmit)="saveChanges(i,s)">
+                      <h3>Chỉnh sửa thông tin Giáo Viên</h3>
+                      <input type="text" [(ngModel)]="s.maGv" name="maGv{{i}}" placeholder="Mã Giáo Viên" readonly>
+                      <input type="text" [(ngModel)]="s.hoTen" name="hoTen{{i}}" placeholder="Họ và tên">
+                      <input type="date" [(ngModel)]="s.ngaySinh" name="ngaySinh{{i}}" >
+                      <div style="display: flex; gap: 10px; align-items:  center;">
+                        <label >Giới tính :</label>
+                      <select [(ngModel)]="s.gioiTinh" name="gioiTinh{{i}}" style="width:90px; height: 40px;">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                      </select>
+                      </div>
+                      <input type="text" [(ngModel)]="s.diaChi" name="diaChi{{i}}" placeholder="Địa chỉ">
+                      <input type="text" [(ngModel)]="s.sdt" name="sdt{{i}}" placeholder="Số điện thoại">
+                      <input type="text" [(ngModel)]="s.maHp" name="maHp{{i}}" placeholder="Mã học phần">
+                      <button class="btn btn-success" type="submit">Cập nhật</button>
+                      <button class="btn btn-secondary" type="button" (click)="cancelEdit(i)">Đóng</button>
+                    </form>
+                  </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="justify-content: center; display: flex; margin-top: 10px;">
+        <pagination-controls  (pageChange)="page = $event" class="page" previousLabel="Trang trước" nextLabel="Trang tiếp theo"></pagination-controls>
+      </div>
+    </div>
+  </div>
