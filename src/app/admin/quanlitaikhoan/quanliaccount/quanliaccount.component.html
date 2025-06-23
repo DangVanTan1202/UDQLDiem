@@ -1,1 +1,116 @@
-<p>quanliaccount works!</p>
+<div *ngIf="!opencreate" class="modal-background">
+  <form class="modal-form" (ngSubmit)="create(getType)">
+    <h3>Thêm mới tài khoản</h3>
+    <input
+      type="text"
+      [(ngModel)]="newaccout.maGv"
+      name="maGv"
+      placeholder="Mã Giáo Viên"
+      required
+    />
+    <input
+      type="text"
+      [(ngModel)]="newaccout.matKhau"
+      name="matKhau"
+      placeholder="Mật Khẩu"
+    />
+    <select
+      [(ngModel)]="getType"
+      name="getType"
+      style="height: 40px; width: 90px"
+    >
+      <option value="false">Admin</option>
+      <option value="true">Giáo Viên</option>
+    </select>
+    <button class="btn btn-success" type="submit">Cập Nhật</button>
+    <button class="btn btn-secondary" type="button" (click)="open()">
+      Đóng
+    </button>
+  </form>
+</div>
+<div class="action">
+  <button class="btn btn-primary" (click)="open()">Thêm Tài khoản</button>
+</div>
+
+<div class="form">
+  <div class="table-group">
+    <table>
+      <thead>
+        <tr>
+          <th>Số thứ tự</th>
+          <th class="masinhvien">Mã sinh viên</th>
+          <th>Mật khẩu</th>
+          <th>Vai trò</th>
+          <th>Chức năng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let s of accountData
+              | paginate : { itemsPerPage: 10, currentPage: page };
+            let i = index
+          "
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ s.maGv }}</td>
+          <td>{{ s.matKhau }}</td>
+          <td *ngIf="s.loai">Giáo Viên</td>
+          <td *ngIf="!s.loai">Admin</td>
+          <td>
+            <div class="btn">
+              <button
+                class="btn btn-success"
+                (click)="toggleEditMode(i, s.loai)"
+              >
+                Chỉnh sửa
+              </button>
+            </div>
+            <div *ngIf="editMode[i]" class="modal-background">
+              <form class="modal-form" (ngSubmit)="saveChanges(i, s, getType)">
+                <h3>Chỉnh sửa thông tin tài khoản</h3>
+                <input
+                  type="text"
+                  [(ngModel)]="s.maGv"
+                  name="maGv{{ i }}"
+                  placeholder="Mã Giáo Viên"
+                  readonly
+                />
+                <input
+                  type="text"
+                  [(ngModel)]="s.matKhau"
+                  name="matKhau{{ i }}"
+                  placeholder="Mật khẩu"
+                />
+                <select
+                  [(ngModel)]="getType"
+                  name="type{{ i }}"
+                  style="height: 40px; width: 90px"
+                >
+                  <option value="false">Admin</option>
+                  <option value="true">Giáo Viên</option>
+                </select>
+                <button class="btn btn-success" type="submit">Cập Nhật</button>
+                <button
+                  class="btn btn-secondary"
+                  type="button"
+                  (click)="cancelEdit(i)"
+                >
+                  Đóng
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="justify-content: center; display: flex; margin-top: 10px">
+      <pagination-controls
+        (pageChange)="page = $event"
+        class="page"
+        previousLabel="Trang trước"
+        nextLabel="Trang tiếp theo"
+      ></pagination-controls>
+    </div>
+  </div>
+</div>

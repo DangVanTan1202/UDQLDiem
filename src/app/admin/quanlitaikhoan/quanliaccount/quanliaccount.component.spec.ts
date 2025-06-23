@@ -8,9 +8,8 @@ describe('QuanliaccountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [QuanliaccountComponent]
-    })
-    .compileComponents();
+      declarations: [QuanliaccountComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(QuanliaccountComponent);
     component = fixture.componentInstance;
