@@ -1,0 +1,24 @@
+<div class="main">
+  <div class="container">
+      <div class="header-text">
+        <img class="header-text-logo" src="https://seeklogo.com/images/E/educational-people-logo-66BC945BD1-seeklogo.com.png" alt="logo">
+        <p class="header-text-description">Login</p>
+      </div>
+      <form>
+        <input type="text" 
+                [(ngModel)]="flogin.maGv"
+               placeholder="Email"
+               name="username"
+               id="email"
+               autofocus
+               required>
+        <input type="password" 
+        [(ngModel)]="flogin.matKhau"
+               name="password"
+               id="password" 
+               placeholder="password"
+               required>
+        <button (click)="onLogin()" type="button">Login</button>
+      </form>
+     </div>
+</div>
