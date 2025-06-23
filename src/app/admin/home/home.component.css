@@ -1,0 +1,121 @@
+/* Tổng thể */
+body {
+  background: linear-gradient(120deg, #0bd4ef, #b303d2);
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  background: #efe44b;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px 40px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Hiệu ứng fadeIn */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+header .subtitle {
+  font-size: 1.2rem;
+  color: #6a1b9a;
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: linear-gradient(135deg, #f8bbd0, #ce93d8);
+  padding: 25px;
+  border-radius: 12px;
+  color: #2c003e;
+  margin-bottom: 30px;
+}
+
+.welcome-section h2 {
+  font-size: 1.8rem;
+  color: #880e4f;
+  margin-bottom: 10px;
+}
+
+.welcome-section ul {
+  list-style-type: '🎓 ';
+  margin-top: 15px;
+  padding-left: 25px;
+}
+
+.welcome-section ul li {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Features Section */
+.features-section {
+  margin-top: 40px;
+}
+
+.features-section h2 {
+  font-size: 1.8rem;
+  color: #00695c;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Grid layout */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* Feature Cards */
+.feature-card {
+  background: linear-gradient(180deg, #e0f2f1, #ffffff);
+  border: 2px solid #80cbc4;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+  color: #00796b;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.feature-card p {
+  color: #424242;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  color: #555;
+  font-size: 0.95rem;
+  border-top: 1px solid #ddd;
+}

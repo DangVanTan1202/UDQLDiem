@@ -1,57 +1,135 @@
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tổng thể layout */
 .main {
-    max-width: 1700px;
-    margin: 0 auto;
-    padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background: #1483f2;
+  min-height: 100vh;
 }
 
+/* Banner */
 .banner {
-    margin-bottom: 20px;
-}
-
-.main-layout {
-    height: 60vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.left {
-    flex-basis: 20%;
-    background-color: #f0f0f0;
-    padding: 20px; 
-    border-radius: 5px; 
-}
-
-.left ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.left ul li {
-    margin-bottom: 10px;
-}
-
-.left ul li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.left ul li a:hover {
-    background-color: #ddd;
-}
-
-.right {
-    flex-basis: 75%;
+  position: relative;
+  height: 220px;
+  overflow: hidden;
 }
 
 .banner img {
-    width: 100%;
-    height: 300px;
-    border-radius: 5px;
-    object-fit: cover; 
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(246, 114, 20, 0.6);
+  color: rgb(232, 28, 28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px black;
+}
+
+/* Bố cục chính */
+.main-layout {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Sidebar bên trái */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #bef7be, #28a6e9);
+  padding: 20px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  color: rgb(102, 28, 239);
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  color: #0b0b00;
+  text-decoration: none;
+  font-size: 1rem;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: rgba(194, 18, 18, 0.1);
+}
+
+.sidebar a:hover {
+  background: #ea730b;
+  color: #080808;
+  transform: translateX(5px);
+}
+
+.user-greeting {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  background-color: rgba(192, 23, 23, 0.15);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Nội dung bên phải */
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  margin: 0 20px 20px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  min-height: 500px;
+}
+/* Tăng cỡ chữ cho sidebar */
+.sidebar a {
+  font-size: 1.2rem; /* tăng từ 1rem → 1.2rem */
+  padding: 14px 16px; /* tăng padding cho dễ bấm */
+}
+
+/* Phóng to icon bằng cách cho thêm khoảng cách */
+.sidebar a::before {
+  font-size: 1.4rem;
+  margin-right: 8px;
+}
+
+/* Phần tên người dùng (Xin chào) to hơn */
+.user-greeting {
+  font-size: 1.1rem;
+  padding: 14px;
+}
+
+/* Phần nội dung chính cũng to hơn */
+.content {
+  font-size: 1.1rem;  /* cỡ chữ chung */
+  padding: 35px;      /* khoảng cách lớn hơn cho thoáng */
+}
+
+/* Tiêu đề trong banner to hơn */
+.banner-overlay h1 {
+  font-size: 3rem;
+}
+

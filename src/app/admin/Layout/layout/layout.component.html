@@ -6,8 +6,8 @@
         <div class="left">
             <ul>
                 <li><a (click)="trangchu()">Trang Chủ</a></li>
-                <li><a (click)="quanlisv()">Quản lí Sinh Viên</a></li>
                 <li><a (click)="quanlidiem()">Quản Lí Điểm</a></li>
+                <li *ngIf="name=='Admin'"><a (click)="quanlisv()">Quản lí Sinh Viên</a></li>
                 <li *ngIf="name=='Admin'"><a  (click)="quanligv()"  >Quản lí Giáo Viên</a></li>
                 <li *ngIf="name=='Admin'"><a (click)="quanlitk()">Quản lí tài khoản</a></li>
                 <li *ngIf="name!='Admin'"><a  (click)="thongtin()">Thông tin tài khoản</a></li>
