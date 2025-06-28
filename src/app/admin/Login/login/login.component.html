@@ -1,24 +1,27 @@
 <div class="main">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <div class="container">
-      <div class="header-text">
-        <img class="header-text-logo" src="https://seeklogo.com/images/E/educational-people-logo-66BC945BD1-seeklogo.com.png" alt="logo">
-        <p class="header-text-description">Login</p>
-      </div>
-      <form>
-        <input type="text" 
-                [(ngModel)]="flogin.maGv"
-               placeholder="Email"
-               name="username"
-               id="email"
-               autofocus
-               required>
-        <input type="password" 
-        [(ngModel)]="flogin.matKhau"
-               name="password"
-               id="password" 
-               placeholder="password"
-               required>
-        <button (click)="onLogin()" type="button">Login</button>
-      </form>
-     </div>
+    <div class="header-text">
+      <img class="header-text-logo"
+           src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+           alt="logo">
+      <p class="header-text-description">Đăng nhập hệ thống</p>
+    </div>
+    <form>
+      <input type="text" 
+             [(ngModel)]="flogin.maGv"
+             placeholder="Email"
+             name="username"
+             id="email"
+             autofocus
+             required>
+      <input type="password" 
+             [(ngModel)]="flogin.matKhau"
+             name="password"
+             id="password" 
+             placeholder="Password"
+             required>
+      <button (click)="onLogin()" type="button">Đăng nhập</button>
+    </form>
+  </div>
 </div>

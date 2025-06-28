@@ -1,0 +1,81 @@
+/* Reset margin và font mặc định */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Hình nền toàn trang */
+.main {
+  background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form login container */
+.container {
+  background-color: rgba(255, 255, 255, 0.95); /* trắng có độ trong nhẹ */
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Header với logo và tiêu đề */
+.header-text {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.header-text-logo {
+  width: 70px;
+  height: 70px;
+}
+.header-text-description {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00796b;
+  margin-top: 10px;
+}
+
+/* Ô input */
+form input[type="text"],
+form input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #f9f9f9;
+  transition: border 0.3s ease;
+}
+
+form input:focus {
+  border-color: #26a69a;
+  outline: none;
+}
+
+/* Nút đăng nhập */
+form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2bbbad;
+}

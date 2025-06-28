@@ -1,4 +1,4 @@
-/* Reset cơ bản */
+/* Reset margin/padding */
 * {
   margin: 0;
   padding: 0;
@@ -7,129 +7,75 @@
 
 /* Tổng thể layout */
 .main {
-  font-family: 'Segoe UI', sans-serif;
-  background: #1483f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #4291f8;
   min-height: 100vh;
 }
 
 /* Banner */
-.banner {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-}
-
 .banner img {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
-}
-
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(246, 114, 20, 0.6);
-  color: rgb(232, 28, 28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.banner-overlay h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 4px black;
+  border-bottom: 4px solid #77b5f9;
 }
 
 /* Bố cục chính */
 .main-layout {
   display: flex;
-  margin-top: 20px;
+  padding: 20px;
 }
 
 /* Sidebar bên trái */
-.sidebar {
+.left {
   width: 240px;
-  background: linear-gradient(180deg, #bef7be, #28a6e9);
+  background: linear-gradient(145deg, #47d6fa, #43d4d9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
   padding: 20px;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
-  color: rgb(102, 28, 239);
+  margin-right: 20px;
 }
 
-.sidebar ul {
+.left ul {
   list-style: none;
 }
 
-.sidebar li {
+.left ul li {
   margin-bottom: 15px;
 }
 
-.sidebar a {
-  color: #0b0b00;
-  text-decoration: none;
-  font-size: 1rem;
+.left ul li a {
   display: block;
-  padding: 10px 12px;
+  padding: 12px 16px;
+  color: #333;
+  text-decoration: none;
+  background-color: #e9eff5;
   border-radius: 8px;
   transition: all 0.3s ease;
-  background: rgba(194, 18, 18, 0.1);
+  font-weight: 500;
 }
 
-.sidebar a:hover {
-  background: #ea730b;
-  color: #080808;
+.left ul li a:hover {
+  background-color: #007bff;
+  color: white;
   transform: translateX(5px);
+  box-shadow: 2px 4px 10px rgba(0, 123, 255, 0.2);
 }
 
-.user-greeting {
+/* Phần chào người dùng */
+.left ul li:last-child {
   margin-top: 20px;
-  font-size: 0.95rem;
-  background-color: rgba(192, 23, 23, 0.15);
-  padding: 10px;
-  border-radius: 8px;
+  font-style: italic;
+  color: #007bff;
+  text-align: center;
 }
 
 /* Nội dung bên phải */
-.content {
+.right {
   flex: 1;
-  padding: 30px;
-  background: #ffffff;
-  border-radius: 16px;
-  margin: 0 20px 20px 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   min-height: 500px;
 }
-/* Tăng cỡ chữ cho sidebar */
-.sidebar a {
-  font-size: 1.2rem; /* tăng từ 1rem → 1.2rem */
-  padding: 14px 16px; /* tăng padding cho dễ bấm */
-}
-
-/* Phóng to icon bằng cách cho thêm khoảng cách */
-.sidebar a::before {
-  font-size: 1.4rem;
-  margin-right: 8px;
-}
-
-/* Phần tên người dùng (Xin chào) to hơn */
-.user-greeting {
-  font-size: 1.1rem;
-  padding: 14px;
-}
-
-/* Phần nội dung chính cũng to hơn */
-.content {
-  font-size: 1.1rem;  /* cỡ chữ chung */
-  padding: 35px;      /* khoảng cách lớn hơn cho thoáng */
-}
-
-/* Tiêu đề trong banner to hơn */
-.banner-overlay h1 {
-  font-size: 3rem;
-}
-
