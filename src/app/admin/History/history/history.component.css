@@ -1,0 +1,160 @@
+/* Giao diện nền */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #eef2f3, #f9fbfd);
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* Animation vào mượt */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Action: tìm kiếm và nút xoá toàn bộ */
+.action {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.action label {
+  font-weight: 600;
+}
+
+.action input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  width: 260px;
+  transition: border-color 0.2s;
+}
+
+.action input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Bảng lịch sử thao tác */
+.table-group {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  background: linear-gradient( #1d8cf8);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 15px;
+}
+
+tbody td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafd;
+}
+
+tbody tr:hover {
+  background-color: #eaf2ff;
+}
+
+/* Nút */
+.btn {
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 4px 4px;
+  transition: 0.2s ease-in-out;
+  min-width: 95px;
+  text-align: center;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Màu từng loại nút */
+.btn-danger {
+  background-color: #1becf4;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #2950e8;
+}
+
+/* Phân trang căn giữa */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls ::ng-deep .ngx-pagination {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pagination-controls ::ng-deep .ngx-pagination a,
+.pagination-controls ::ng-deep .ngx-pagination .current {
+  margin: 0 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.pagination-controls ::ng-deep .ngx-pagination .current {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+}
