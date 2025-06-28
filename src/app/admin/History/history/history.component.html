@@ -1,1 +1,35 @@
-<p>history works!</p>
+<div class="action">
+    <label >Tìm Kiếm :</label>
+    <input [(ngModel)]="search" (change)="searchds($event)" placeholder="Nhập để tìm" type="text" name="search">
+    <button (click)="deleteall()" class="btn btn-danger">Xóa toàn bộ lịch sử</button>
+</div>
+<div class="form">
+    <div class="table-group">
+      <table>
+        <thead>
+          <tr>
+            <th>Số thứ tự</th>
+            <th>Mã giáo viên</th>
+            <th>Nội dung thao tác</th>
+            <th>Thời gian</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of lichsu| paginate: { itemsPerPage: 10, currentPage: page }; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ s.magv }}</td>
+            <td>{{ s.noidung }}</td>
+            <td >{{s.thoigian}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="delete(s.id)">Xóa</button>     
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="justify-content: center; display: flex; margin-top: 10px;">
+        <pagination-controls  (pageChange)="page = $event" class="page" previousLabel="Trang trước" nextLabel="Trang tiếp theo"></pagination-controls>
+      </div>
+    </div>
+  </div>
