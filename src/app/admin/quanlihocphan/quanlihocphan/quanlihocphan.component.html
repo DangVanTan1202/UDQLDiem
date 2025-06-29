@@ -1,1 +1,61 @@
-<p>quanlihocphan works!</p>
+<div class="hocphan-container">
+  <h2>Quản lý học phần</h2>
+
+  <!-- Nút mở form -->
+  <button class="btn-open" (click)="openForm()">+ Thêm học phần</button>
+
+  <!-- Modal popup hiển thị form thêm/sửa -->
+  <div class="modal" *ngIf="showForm">
+    <div class="modal-content">
+      <span class="close" (click)="closeForm()">&times;</span>
+      <h3>{{ isEdit ? 'Cập nhật học phần' : 'Thêm học phần mới' }}</h3>
+      <form (ngSubmit)="submitForm()" class="hocphan-form">
+        <div class="form-row">
+          <input type="text" [(ngModel)]="monhoc.maHp" name="maHp" placeholder="Mã học phần" required>
+          <input type="text" [(ngModel)]="monhoc.tenHp" name="tenHp" placeholder="Tên học phần" required>
+        </div>
+        <div class="form-row">
+          <input type="number" [(ngModel)]="monhoc.soTc" name="soTc" placeholder="Số tín chỉ" required>
+          <input type="number" [(ngModel)]="monhoc.heSoCc" name="heSoCc" placeholder="Hệ số CC" required>
+          <input type="number" [(ngModel)]="monhoc.heSoGk" name="heSoGk" placeholder="Hệ số GK" required>
+          <input type="number" [(ngModel)]="monhoc.heSoCk" name="heSoCk" placeholder="Hệ số CK" required>
+        </div>
+        <div class="form-row">
+          <input type="text" [(ngModel)]="monhoc.kyHoc" name="kyHoc" placeholder="Kỳ học" required>
+          <button type="submit" class="btn-submit">{{ isEdit ? 'Cập nhật' : 'Thêm mới' }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bảng danh sách học phần -->
+  <table class="hocphan-table">
+    <thead>
+      <tr>
+        <th>Mã HP</th>
+        <th>Tên HP</th>
+        <th>Số TC</th>
+        <th>HS CC</th>
+        <th>HS GK</th>
+        <th>HS CK</th>
+        <th>Kỳ học</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hp of dsHocPhan">
+        <td>{{ hp.maHp }}</td>
+        <td>{{ hp.tenHp }}</td>
+        <td>{{ hp.soTc }}</td>
+        <td>{{ hp.heSoCc }}</td>
+        <td>{{ hp.heSoGk }}</td>
+        <td>{{ hp.heSoCk }}</td>
+        <td>{{ hp.kyHoc }}</td>
+        <td>
+          <button class="btn-edit" (click)="edit(hp)">sửa</button>
+          <button class="btn-delete" (click)="xoa(hp.maHp)">xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
