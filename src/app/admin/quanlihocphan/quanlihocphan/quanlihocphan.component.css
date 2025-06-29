@@ -1,0 +1,158 @@
+/* TABLE STYLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+thead th {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.table-group {
+  width: 100%;
+}
+
+thead th,
+tbody td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #e2e6ea;
+  transition: background-color 0.3s ease;
+}
+
+/* FORM WRAPPER */
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* BUTTON GROUP */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn button {
+  padding: 10px 18px;
+  background-color: #ffffff;
+  color: #dc3545;
+  border: 2px solid #dc3545;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* MODAL OVERLAY */
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* MODAL FORM */
+.modal-form {
+  background-color: #fffbea;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  width: 420px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  height: 550px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-form input {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border 0.2s;
+}
+
+.modal-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.modal-form button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-form button:hover {
+  background-color: #0056b3;
+}
+
+/* ACTION SECTION */
+.action {
+  display: flex;
+  height: 40px;
+  margin: 10px 5px;
+  gap: 15px;
+  align-items: center;
+}
+
+.action input {
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.action input:focus {
+  border-color: #007bff;
+  outline: none;
+}
